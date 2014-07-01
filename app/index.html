@@ -1,3 +1,4 @@
+<script src="scripts/services/other.js"></script>
 <!DOCTYPE html>
 <html ng-app="app">
 	<head></head>
@@ -11,5 +12,22 @@
 		<script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 		<script src="scripts/app.js"></script>
+        <script src="scripts/providers/messageBus.js"></script>
+        <script>
+            angular.module('app').config(function($stateProvider, $urlRouterProvider, messageBusProvider){
+                $urlRouterProvider.otherwise("/");
+
+                $stateProvider.state('home', {
+                    url:'/',
+                    template :'<div>Ik ben de home pagina</div>'
+                });
+                $stateProvider.state('contact',{
+                    url:'/contact',
+                    template : '<div>Ik ben de contactpagina</div>'
+                })
+
+                messageBusProvider.setProtectedChannel('radio');
+            });
+        </script>
 	</body>
 </html>
