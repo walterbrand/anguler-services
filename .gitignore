@@ -1,3 +1,4 @@
 .idea
 training-services.iml
 node_modules
+bower_components
